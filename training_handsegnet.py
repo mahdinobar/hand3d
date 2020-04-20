@@ -31,7 +31,7 @@ train_para = {'lr': [1e-5, 1e-6, 1e-7],
               'max_iter': 40000,
               'show_loss_freq': 1000,
               'snapshot_freq': 5000,
-              'snapshot_dir': 'snapshots_handsegnet'}
+              'snapshot_dir': '/home/mahdi/HVR/git_repos/hand3d/snapshots_handsegnet'}
 
 # get dataset
 dataset = BinaryDbReader(mode='training',

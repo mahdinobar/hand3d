@@ -38,7 +38,7 @@ train_para = {'lr': [1e-5, 1e-6],
               'max_iter': 80000,
               'show_loss_freq': 1000,
               'snapshot_freq': 5000,
-              'snapshot_dir': 'snapshots_lifting_%s' % VARIANT}
+              'snapshot_dir': '/home/mahdi/HVR/git_repos/hand3d/snapshots_lifting_%s' % VARIANT}
 
 # get dataset
 dataset = BinaryDbReader(mode='training',

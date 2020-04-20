@@ -35,7 +35,7 @@ path_to_db = './RHD_published_v2/'
 
 # chose if you want to create a binary for training or evaluation set
 # set = 'training'
-set = 'evaluation'
+set = 'training'
 
 ### No more changes below this line ###
 

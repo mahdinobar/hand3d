@@ -37,14 +37,14 @@ import numpy as np
 from data.BinaryDbReader import *
 from nets.PosePriorNetwork import PosePriorNetwork
 from utils.general import EvalUtil, load_weights_from_snapshot
-
-# Chose which variant to evaluate
-USE_RETRAINED = False
-VARIANT = 'direct'
+# to use pre-trained model: USE_RETRAINED=False
+USE_RETRAINED = True
+# Choose which variant to evaluate
+# VARIANT = 'direct'
 # VARIANT = 'bottleneck'
 # VARIANT = 'local'
 # VARIANT = 'local_w_xyz_loss'
-# VARIANT = 'proposed'
+VARIANT = 'proposed'
 
 # get dataset
 dataset = BinaryDbReader(mode='evaluation', shuffle=False, hand_crop=True, use_wrist_coord=False)
@@ -69,7 +69,7 @@ tf.train.start_queue_runners(sess=sess)
 # initialize network with weights used in the paper
 if USE_RETRAINED:
     # retrained version: HandSegNet
-    last_cpt = tf.train.latest_checkpoint('./snapshots_lifting_%s_drop/' % VARIANT)
+    last_cpt = tf.train.latest_checkpoint('./snapshots_lifting_%s/' % VARIANT)
     assert last_cpt is not None, "Could not locate snapshot to load. Did you already train the network?"
     load_weights_from_snapshot(sess, last_cpt, discard_list=['Adam', 'global_step', 'beta'])
 else:
